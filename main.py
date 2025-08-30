@@ -9,7 +9,7 @@ app = Flask(__name__)
 URLS = [
     "https://gpt4free-3u5v.onrender.com",
     "https://render-downloader-8aqy.onrender.com",
-    "https://service-b.onrender.com"  # Service B ka URL bhi yaha
+    "https://render-service-b.onrender.com"  # Service B ka URL bhi yaha
 ]
 
 status_data = {url: "unknown" for url in URLS}
