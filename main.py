@@ -5,11 +5,11 @@ import time
 
 app = Flask(__name__)
 
-# 👇 yaha apne URLs dalna jo ping karne hain
+# 👇 Ye sab ping honge (Service B + baaki tumhare URLs)
 URLS = [
     "https://gpt4free-3u5v.onrender.com",
     "https://render-downloader-8aqy.onrender.com",
-    "https://render-service-b.onrender.com"  # Service B ka URL bhi yaha
+    "https://render-service-b.onrender.com"  # Service B ka root
 ]
 
 status_data = {url: "unknown" for url in URLS}
@@ -23,9 +23,13 @@ def ping_urls():
                     status_data[url] = "ok"
                 else:
                     status_data[url] = f"error {r.status_code}"
-            except Exception as e:
+            except Exception:
                 status_data[url] = "down"
         time.sleep(300)  # 5 min
+
+@app.route("/")
+def home():
+    return jsonify({"status": "ok"})
 
 @app.route("/health")
 def health():
