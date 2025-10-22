@@ -8,8 +8,9 @@ app = Flask(__name__)
 # 👇 Ye sab ping honge (Service B + baaki tumhare URLs)
 URLS = [
     "https://gpt4free-3u5v.onrender.com",
-    "https://render-downloader-8aqy.onrender.com",
+    "https://render-downloader-8aqy.onrender.com"
     "https://render-service-b.onrender.com"  # Service B ka root
+    "https://mern-chat-app-76ug.onrender.com",
 ]
 
 status_data = {url: "unknown" for url in URLS}
